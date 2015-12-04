@@ -1,0 +1,14 @@
+master:
+  build: .
+  dockerfile: Master.dockerfile
+  container_name: riak_master
+  ports:
+    - "8081:8081"
+    - "8091:8091"
+    - "8099:8099"
+
+node:
+  build: .
+  dockerfile: Node.dockerfile
+  links:
+    - master
